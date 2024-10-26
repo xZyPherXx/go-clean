@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#007BFF">
+    <link rel="stylesheet" href="/src/style.css">
+    <link rel="manifest" href="/manifest.json">
+    <title> Progressive Web Application </title>
+    <link rel="apple-touch-icon" href="/icons/code-128x128.png">
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+</head>
+<body>
+
+    <nav>
+        <h1>
+            <img src="/icons/code-128x128.png" alt="Logo"> Game Store
+        </h1>
+        <select id="categorySelect">
+            <option value="All">All Categories</option>
+            <option value="FPS">FPS</option>
+            <option value="Tactical">Tactical</option>
+            <option value="Simulation">Simulation</option>
+            <option value="Sandbox">Sandbox</option>
+            <option value="Adventure">Adventure</option>
+            <option value="Action">Action</option>
+            <option value="Farming">Farming</option>
+            <option value="RPG">RPG</option>
+            <option value="Open-world">Open World</option>
+            <option value="Hunting">Hunting</option>
+        </select>
+    </nav>
+
+    <main id="content">
+        <h1 style="color: white;"> Progressive Web Application Implementation </h1>
+        <div id="productContainer"></div>
+    </main>
+
+    <footer>
+        <p style="color: #021526;">&copy; 2024 Game Store. For selected topic.</p>
+    </footer>
+
+    <script src="/src/index.js"></script>
+
+</body>
+</html>

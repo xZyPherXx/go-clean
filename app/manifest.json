@@ -1,0 +1,22 @@
+{
+
+    "name" : "My First Progressive Web Application",
+    "short_name" : "PWA",
+    "start_url" : ".",
+    "background_color" : "#f6f6f6",
+    "theme_color" : "#007BFF",
+    "display" : "standalone",
+    "icons" : [
+        {
+            "src" : "icons/code-128x128.png",
+            "sizes" : "128x128",
+            "type" : "image/png"
+        },
+        {
+            "src" : "icons/code-512x512.png",
+            "sizes" : "512x512",
+            "type" : "image/png"
+        }
+    ]
+
+}

@@ -1,0 +1,66 @@
+version: '3.8'
+
+services:
+
+  postgres:
+    image: postgres:alpine
+    container_name: postgres
+    env_file:
+      - ./server/config/.env
+    volumes:
+      - pwa_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    restart: always
+    networks:
+      - pwa_network
+
+  # pgadmin:
+  #   image: elestio/pgadmin
+  #   container_name: pgadmin
+  #   environment:
+  #     PGADMIN_DEFAULT_EMAIL: admin@pwa.com
+  #     PGADMIN_DEFAULT_PASSWORD: admin
+  #   # volumes:
+  #   #   - pgadmin_data:/pgadmin4/servers.json
+  #   ports:
+  #     - "5000:80"
+  #   depends_on:
+  #     - postgres
+  #   restart: always
+  #   networks:
+  #     - pwa_network
+
+  server:
+    # image: server-img:gp
+    container_name: server
+    build:
+      context: ./server
+      dockerfile: Dockerfile
+    ports:
+      - "8000:3000"
+    depends_on:
+      - postgres
+    restart: always
+    networks:
+      - pwa_network
+
+  app:
+    # image: app-img:v3
+    container_name: app
+    build:
+      context: ./app
+      dockerfile: Dockerfile
+    ports:
+      - "8080:80"
+    depends_on:
+      - server
+    restart: always
+    networks:
+      - pwa_network
+  
+networks:
+  pwa_network:
+
+volumes:
+  pwa_data:
